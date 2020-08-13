@@ -13,52 +13,58 @@ namespace ReflectionTests
             string strDllPath = Path.GetFullPath("Countries.dll");
             var assembly = Assembly.LoadFile(strDllPath);
             var countryTypes = assembly.GetTypes();
-           foreach(var t in countryTypes)
-            {
-                Console.WriteLine(t.FullName);
-            }
-            //PrintInterfaceInfo(ref assembly);
-            //PrintCountryDetails(ref countryTypes, ref assembly);
-            //PrintTopSecretMethods(ref countryTypes);
+            //PrintInterfaceInfo(assembly);
+            //PrintCountryDetails(countryTypes, assembly);
+            //PrintTopSecretMethods(countryTypes);
+            PrintContrysContinental(countryTypes, assembly, "mamas");
 
         }
 
-        public static void PrintTopSecretMethods(ref Type[] countryTypes)
+        /// <summary>
+        /// --- Exercise 3b ---
+        /// </summary>
+        /// <param name="countryTypes"></param>
+        public static void PrintTopSecretMethods(Type[] countryTypes)
         {
             if (countryTypes == null)
             {
                 Console.WriteLine("No Countries");
                 return;
             }
-            dynamic topSecretAttr;
+            Console.WriteLine("Top Secret Methods:");
+            Console.WriteLine("==============================");
+            Type topSecretAttr = countryTypes.Where(x => x.Name == "TopSecretAttribute").First();
             foreach (var t in countryTypes)
             {
-                if (t.Name == "TopSecretAttribute")
-                {
-                    topSecretAttr = t;
-                    break;
-                }
-            }
-            foreach (var t in countryTypes)
-            {
-                if (t.FullName.Contains("Countries"))
-                {
-                    var members = t.GetMembers();
-                    foreach (var member in members)
+                if (t.FullName.Contains("Countries.Countries"))
+               {
+                    var methods = t.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance); 
+                    Console.WriteLine($"{t.FullName}: ");
+                    foreach (var method in methods)
                     {
-
-                        var customAttrArray = member.CustomAttributes.ToList();
+                        
+                        var customAttrArray = method.GetCustomAttributesData();
                         foreach (var attr in customAttrArray)
                         {
-                            Console.WriteLine($"{t.Name}, {member.Name}, {attr.AttributeType}");
+                            if (attr.AttributeType.Name.Equals(topSecretAttr.Name))
+                                Console.WriteLine(method.Name);
                         }
+
                         
                     }
+                    Console.WriteLine("==============================");
                 }
             }
         }
-
-        public static void PrintCountryDetails(ref Type[] countryTypes, ref Assembly assembly)
+        /// <summary>
+        /// --- Exercise 2 ---
+        /// Method gets a types array and the assembly.
+        /// For every type, checks if it is a country.
+        /// If it is, prints it`s Name, population, and size.
+        /// </summary>
+        /// <param name="countryTypes"></param>
+        /// <param name="assembly"></param>
+        public static void PrintCountryDetails(Type[] countryTypes, Assembly assembly)
         {
             if (countryTypes == null)
             {
@@ -90,14 +96,47 @@ namespace ReflectionTests
                 }
             }
         }
-
-        public static void PrintInterfaceInfo(ref Assembly assembly)
+        /// <summary>
+        /// --- Exercise 1 ---
+        /// Method gets the assembly, and prints all members of ICountry interface
+        /// </summary>
+        /// <param name="assembly"></param>
+        public static void PrintInterfaceInfo(Assembly assembly)
         {
             var countryInterface = assembly.GetType("Countries.Interfaces.ICountry");
-            var members = countryInterface.GetMembers();
-            foreach (var m in members)
+            var methods = countryInterface.GetMethods();
+            var fields = countryInterface.GetFields();
+            var props = countryInterface.GetProperties();
+            foreach (var m in methods)
             {
                 Console.WriteLine($"Member Type: {m.MemberType}, Name: {m.Name}");
+            }
+            foreach(var f in fields)
+            {
+                Console.WriteLine($"Member Type: {f.MemberType}, Name: {f.Name}");
+            }
+            foreach(var p in props)
+            {
+                Console.WriteLine($"Member Type: {p.MemberType}, Name: {p.Name}");
+            }
+        }
+
+
+        /// <summary>
+        /// --- Excercise 3c ---
+        /// </summary>
+        /// <param name="countryTypes"></param>
+        /// <param name="assembly"></param>
+        /// <param name="countryName"></param>
+        public static void PrintContrysContinental(Type[] countryTypes, Assembly assembly, string countryName)
+        {
+            var country = countryTypes.Where(c => c.Name.ToLower().Contains(countryName)).ToList().First();
+            var countryAttr = System.Attribute.GetCustomAttributes(country);
+            var continentAttributeType = country.CustomAttributes.ToList();
+            foreach (var attr in continentAttributeType)
+            {
+                if (attr.AttributeType.FullName.ToLower().Contains("continent"))
+                    Console.WriteLine(String.Join(", ", attr.ConstructorArguments));
             }
         }
     }

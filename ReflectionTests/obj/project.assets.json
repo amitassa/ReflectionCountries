@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thelittlecitizen13\\source\\repos\\ReflectionTests\\ReflectionTests\\ReflectionTests.csproj",
+      "projectUniqueName": "C:\\Code\\Reflection\\ReflectionCountries\\ReflectionTests\\ReflectionTests.csproj",
       "projectName": "ReflectionTests",
-      "projectPath": "C:\\Users\\thelittlecitizen13\\source\\repos\\ReflectionTests\\ReflectionTests\\ReflectionTests.csproj",
+      "projectPath": "C:\\Code\\Reflection\\ReflectionCountries\\ReflectionTests\\ReflectionTests.csproj",
       "packagesPath": "C:\\Users\\thelittlecitizen13\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thelittlecitizen13\\source\\repos\\ReflectionTests\\ReflectionTests\\obj\\",
+      "outputPath": "C:\\Code\\Reflection\\ReflectionCountries\\ReflectionTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thelittlecitizen13\\AppData\\Roaming\\NuGet\\NuGet.Config",
