@@ -1,0 +1,13 @@
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\bin\Debug\netcoreapp3.1\ReflectionTests.exe
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\bin\Debug\netcoreapp3.1\ReflectionTests.deps.json
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\bin\Debug\netcoreapp3.1\ReflectionTests.runtimeconfig.json
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\bin\Debug\netcoreapp3.1\ReflectionTests.runtimeconfig.dev.json
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\bin\Debug\netcoreapp3.1\ReflectionTests.dll
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\bin\Debug\netcoreapp3.1\ReflectionTests.pdb
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\obj\Debug\netcoreapp3.1\ReflectionTests.csprojAssemblyReference.cache
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\obj\Debug\netcoreapp3.1\ReflectionTests.AssemblyInfoInputs.cache
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\obj\Debug\netcoreapp3.1\ReflectionTests.AssemblyInfo.cs
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\obj\Debug\netcoreapp3.1\ReflectionTests.csproj.CoreCompileInputs.cache
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\obj\Debug\netcoreapp3.1\ReflectionTests.dll
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\obj\Debug\netcoreapp3.1\ReflectionTests.pdb
+C:\Users\thelittlecitizen13\source\repos\ReflectionTests\ReflectionTests\obj\Debug\netcoreapp3.1\ReflectionTests.genruntimeconfig.cache
